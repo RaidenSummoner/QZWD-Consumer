@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "uni-combox": "/uni_modules/uni-combox/components/uni-combox/uni-combox"
+  }
+}
