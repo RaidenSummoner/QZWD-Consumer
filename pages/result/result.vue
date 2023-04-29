@@ -21,9 +21,7 @@
 				<br>
 			</view>
 		</uni-collapse>
-		<navigator url="../index/index" hover-class="navigator-hover">
-			<button>开启薪赛道</button>
-		</navigator>
+		<button @click="nav">开启薪赛道</button>
 		
 		<br>
 	</view>
@@ -98,6 +96,11 @@
 			}
 		},
 		methods: {
+			nav(){
+				  uni.switchTab({
+				            url: '../index/index',
+				 })
+			},
 			add() {
 				if (this.content.length > 35) {
 					this.content = '折叠内容主体，可自定义内容及样式，点击按钮修改内容使高度发生变化。'
