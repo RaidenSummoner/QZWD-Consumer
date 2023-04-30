@@ -19,7 +19,7 @@
     "condition": false
   },
   "compileType": "miniprogram",
-  "libVersion": "2.31.0",
+  "libVersion": "2.31.1",
   "appid": "touristappid",
   "projectname": "seekjob",
   "condition": {},
