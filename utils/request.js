@@ -1,6 +1,6 @@
 //不出现在h5中的部分
 // #ifndef H5
-export const BASE_URL = "http://mc.haaland.top:6614"
+export const BASE_URL = "https://qzwdapi.haaland.top"
 // #endif
 
 //只出现在h5中的部分（用于解决跨域）
@@ -14,7 +14,9 @@ export const request = (options) => {  // {url: '', method: '', data: {}}
 		if (uni.getStorageSync('user').token!=null && !isToken) {
 		  options.headers = {
 			  'Content-Type':'application/json',
-			  "satoken-authorization": uni.getStorageSync('user').token.tokenValue} // 让每个请求携带自定义token 请根据实际情况自行修改
+			 	// 让每个请求携带自定义token 请根据实际情况自行修改，有token的话解除下面的注释
+				//  "satoken-authorization": uni.getStorageSync('user').token.tokenValue
+			} 
 		}
 		console.log(options)
 		uni.request({
