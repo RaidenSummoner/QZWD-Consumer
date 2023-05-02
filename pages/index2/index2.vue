@@ -14,10 +14,10 @@
 				</view>
 			</view>
 		</view>
-        <zero-waterfall :list="dataList" @click="navToDetailPage">
+        <zero-waterfall :list="dataList">
             <!--  #ifdef  MP-WEIXIN -->
-            <view v-for="(item, index) of dataList" :key="index" slot="slot{{item.id}}" >
-                <view class="cnt" >
+            <view v-for="(item, index) of dataList" :key="index" slot="slot{{item.id}}">
+                <view class="cnt">
                     <view class="text">{{ item.extra }}</view>
                 </view>
 				
@@ -25,7 +25,7 @@
             <!--  #endif -->
 
             <!-- #ifndef  MP-WEIXIN -->
-            <template v-slot:default="item" >
+            <template v-slot:default="item">
                 <view class="cnt">
                     <view class="text">{{ item.extra }}</view>
                 </view>
@@ -161,22 +161,8 @@
 
         },
         methods: {
-			
 			change(e) {
 				console.log('当前模式：' + e.type + ',状态：' + e.show);
-			},
-			navToDetailPage(e) {
-				uni.navigateTo({
-					url: '/pages/introduct/introduct'
-				})
-			},
-			add(e) {
-				this.goodsList[e].num++;
-				this.goodsList[e].star++
-			},
-			del(e) {
-				this.goodsList[e].num--;
-				this.goodsList[e].star--
 			},
 			onTab(index, item) {
 				console.log(index, item)

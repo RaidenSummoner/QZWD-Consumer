@@ -1,0 +1,28 @@
+
+.container {
+	padding: 20px;
+	font-size: 14px;
+	line-height: 24px;
+}
+.conter {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.element {
+	position: fixed;
+	top: 70%;
+	justify-content: center;
+}
+.rounded-button {
+  width: 120px; /* 设置按钮宽度 */
+  height: 50px; /* 设置按钮高度 */
+  background-color: white; /* 设置按钮背景颜色 */
+  border-radius: 15px; /* 设置按钮圆角半径 */
+  color: black; /* 设置按钮字体颜色 */
+  top: 100px;
+  border: 1px solid black;
+}
+
+

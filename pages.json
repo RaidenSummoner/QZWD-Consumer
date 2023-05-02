@@ -56,6 +56,13 @@
 			}
 		},
 		{
+			"path": "pages/index2/index2",
+			"style": {
+				"navigationBarTitleText": "咨询2"
+		
+			}
+		},
+		{
 			"path": "pages/improve/improve",
 			"style": {
 				"navigationBarTitleText": "薪提升"
