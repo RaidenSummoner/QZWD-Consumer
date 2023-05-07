@@ -28,6 +28,7 @@
 </template>
 
 <script>
+import {postTest} from '../../api/test'
 	export default {
 		data() {
 			return {
@@ -128,6 +129,34 @@
 						this.titles[i].current = e.currentIndex
 					}
 			},
+		},
+		mounted(){
+			const data = this.$store.state.testData;
+			postTest(data).then(res=>{
+				console.log(res)
+				if(res.code==1){
+					console.log(res.data)
+					//保存用户ID到本地
+					uni.setStorageSync('userId', res.data.userId)
+
+					//对应数据内容到列表中
+					titles[0].data = res.data.product+'%';
+					titles[1].data = res.data.aiData+'%';
+					titles[2].data = res.data.programming+'%';
+					titles[3].data = res.data.operation+'%';
+					titles[4].data = res.data.management+'%';
+					titles[5].data = res.data.financeAccount+'%';
+					titles[6].data = res.data.marketing+'%';
+					titles[7].data = res.data.finance+'%';
+					
+				}
+				else{
+					uni.showToast({
+						icon: 'error',
+						title: '错误代码 '+res.status
+					})
+				}
+			})
 		}
 	}
 </script>

@@ -26,6 +26,14 @@ export function getPrompt(s){
     })
 }
 
+//第三题，获取日期提示
+export function getDatePrompt(data){
+    return request({
+        url: '/test/question3?graduationYear='+data,
+        method: 'GET'
+    })
+}
+
 //第四题，输入专业名称显示提示内容。当输入框有文字时，将文字提交到后端，进行模糊查询
 export function getMajor(s){
     return request({

@@ -20,7 +20,6 @@
 </template>
 
 <script>
-import {contentGetAll} from "../../api/content.js"
 	export default {
 		data() {
 			return {
@@ -28,14 +27,9 @@ import {contentGetAll} from "../../api/content.js"
 			}
 		},
 		methods: {
-			getContent(){
-				contentGetAll().then(res=>{
-					console.log(res)
-				})
-			}
+			
 		},
 		onLoad() {
-			this.getContent()
 		}
 	}
 </script>
