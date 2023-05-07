@@ -132,22 +132,25 @@ import {postTest} from '../../api/test'
 		},
 		mounted(){
 			const data = this.$store.state.testData;
+			uni.showLoading({
+				title: '生成结果中...'
+			})
 			postTest(data).then(res=>{
 				console.log(res)
 				if(res.code==1){
 					console.log(res.data)
 					//保存用户ID到本地
 					uni.setStorageSync('userId', res.data.userId)
-
+					
 					//对应数据内容到列表中
-					titles[0].data = res.data.product+'%';
-					titles[1].data = res.data.aiData+'%';
-					titles[2].data = res.data.programming+'%';
-					titles[3].data = res.data.operation+'%';
-					titles[4].data = res.data.management+'%';
-					titles[5].data = res.data.financeAccount+'%';
-					titles[6].data = res.data.marketing+'%';
-					titles[7].data = res.data.finance+'%';
+					this.titles[0].data = res.data.product+'%';
+					this.titles[1].data = res.data.aiData+'%';
+					this.titles[2].data = res.data.programming+'%';
+					this.titles[3].data = res.data.operation+'%';
+					this.titles[4].data = res.data.management+'%';
+					this.titles[5].data = res.data.financeAccount+'%';
+					this.titles[6].data = res.data.marketing+'%';
+					this.titles[7].data = res.data.finance+'%';
 					
 				}
 				else{
@@ -156,6 +159,8 @@ import {postTest} from '../../api/test'
 						title: '错误代码 '+res.status
 					})
 				}
+			}).finally(()=>{
+				uni.hideLoading()
 			})
 		}
 	}

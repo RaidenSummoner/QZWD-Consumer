@@ -26,6 +26,7 @@
 </template>
 
 <script>
+	import {getResult} from '../../api/test.js'
 	export default {
 		data() {
 			return {
@@ -121,6 +122,33 @@
 						this.titles[i].current = e.currentIndex
 					}
 			},
+		},
+		mounted(){
+			const id = uni.getStorageSync('userId')
+			uni.showLoading({
+				title: '生成结果中...'
+			})
+			getResult(id).then(res=>{
+				if(res.code==1){
+					//对应数据内容到列表中
+					this.titles[0].data = res.data.product+'%';
+					this.titles[1].data = res.data.aiData+'%';
+					this.titles[2].data = res.data.programming+'%';
+					this.titles[3].data = res.data.operation+'%';
+					this.titles[4].data = res.data.management+'%';
+					this.titles[5].data = res.data.financeAccount+'%';
+					this.titles[6].data = res.data.marketing+'%';
+					this.titles[7].data = res.data.finance+'%';
+				}
+				else{
+					uni.showToast({
+						icon: 'error',
+						title: '错误代码 '+res.status
+					})
+				}
+			}).finally(()=>{
+				uni.hideLoading()
+			})
 		}
 	}
 </script>
