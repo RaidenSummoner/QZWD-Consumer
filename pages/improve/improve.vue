@@ -1,5 +1,5 @@
 <template>
-	<view>
+	<view class="whi">
 		<view>
 			<scroll-view class="scroll-view_H" scroll-x="true" scroll-left="120">
 				<view class="container">
@@ -212,6 +212,9 @@
 </script>
 
 <style lang="scss" scoped>
+	.whi{
+		background-color: GhostWhite ;
+	}
 	.flexRowCc {
 		display: flex;
 		flex-direction: row;
@@ -288,7 +291,6 @@
 		background-color: white;
 		border-radius: 15px;
 		/* 设置按钮圆角半径 */
-		border: 3px solid grey;
 		flex-direction: column;
 		padding-bottom: 40upx;
 		margin-left: auto;

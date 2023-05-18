@@ -152,7 +152,7 @@
 	}
 </script>
 
-<style lang="scss">
+<style>
 	.guess-section {
 		display: flex;
 		flex-wrap: wrap;

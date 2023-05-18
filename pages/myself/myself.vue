@@ -1,10 +1,11 @@
 <template>
-	<view>
+	<view class="whi">
+		
 		<view class="box">
 			<image class="pict" src="../../static/notice.png"></image>
 		<h4>张三</h4>
 		</view>
-		<view>
+		<view class="whi">
 			<uni-list>
 				<view @click="jump">
 				<uni-list-item thumb="/static/logo.png" :show-extra-icon="true" showArrow :extra-icon="extraIcon" title="我的测评" />
@@ -13,7 +14,9 @@
 				<uni-list-item thumb="/static/logo.png" :show-extra-icon="true" showArrow :extra-icon="extraIcon" title="我的收藏" />
 				</view>
 			</uni-list>
+			<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 		</view>
+		
 	</view>
 </template>
 
@@ -49,7 +52,10 @@
 	}
 </script>
 
-<style lang="scss">
+<style>
+	.whi{
+		background-color: GhostWhite ;
+	}
 	.box{
 		height: 100px;
 		width: 98%;

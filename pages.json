@@ -120,7 +120,17 @@
 		        "enablePullDownRefresh": false
 		    }
 		    
-		}
+		},
+		{
+            "path" : "pages/jiashe/jiashe",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+		
     ],
 	
 	"tabBar": {

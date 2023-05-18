@@ -91,7 +91,7 @@
 	}
 </script>
 
-<style lang="scss" scoped>
+<style>
 	.image-wrapper {
 		width: 100%;
 		height: 500upx;
