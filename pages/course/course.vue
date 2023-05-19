@@ -22,17 +22,19 @@
 			<hr>
 			<view>
 				<image src="../../static/转发.png" class="zhuan"></image><a @click="share()" class="zhuanfa">转发</a>
-				<image src="../../static/收藏.png" class="shou"></image>
+				<image src="../../static/收藏.png" class="shou" @click="star"></image>
 				<a @click="collect()" class="shoucang">收藏</a></view>
 		</view>
 	</view>
 </template>
 
 <script>
+	import {addFavorites} from '../../api/favorites'
 	export default {
 		data() {
 			return {
 				item: {
+					contentId: '1659105766260563970',
 					title: "产品经理集训营-第一期",
 					content: "基于'MBTI'产品",
 					introduce: "老师简介",
@@ -50,7 +52,24 @@
 			},
 			jump(){
 				uni.navigateTo({
-					url: '/pages//vidio/vidio'
+					url: '/pages/vidio/vidio'
+				})
+			},
+			async star(){
+				const userId = await uni.getStorageSync('userId')
+				const params = {
+					contentId: this.item.contentId,
+					category: 2,	//2表示课程
+					userId: userId
+				}
+				addFavorites(params).then(res=>{
+					if(res.code==1){
+						uni.showToast({
+							title: '收藏成功',
+							icon: 'success',
+							mask: true
+						})
+					}
 				})
 			}
 		}

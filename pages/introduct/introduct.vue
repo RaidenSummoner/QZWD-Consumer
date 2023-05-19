@@ -37,8 +37,8 @@
 			<hr>
 			<view>
 				<image src="../../static/转发.png" class="zhuan"></image><a @click="share()" class="zhuanfa">转发</a>
-				<image src="../../static/收藏.png" class="shou"></image>
-				<a @click="collect()" class="shoucang">收藏</a>
+				<image src="../../static/收藏.png" class="shou" @click="collect"></image>
+				<a class="shoucang">收藏</a>
 			</view>
 		</view>
 	</view>
@@ -46,10 +46,12 @@
 </template>
 
 <script>
+	import {addFavorites} from '../../api/favorites'
 	export default {
 		data() {
 			return {
 				item: {
+					contentId: '1643457990705033217',
 					title: '11',
 					first: '行业资讯',
 					second: '产品',
@@ -72,10 +74,6 @@
 				this.item.num--;
 				this.item.star--
 			},
-			collect() {
-				console.log("已收藏")
-				alert("已收藏")
-			},
 			share() {
 				console.log("已分享")
 				alert("已分享")
@@ -84,14 +82,29 @@
 				uni.navigateTo({
 					url: '/pages/course/course'
 				})
+			},
+			async collect(){
+				const userId = await uni.getStorageSync('userId')
+				const params = {
+					contentId: this.item.contentId,
+					category: 1,	//1表示资讯
+					userId: userId
+				}
+				addFavorites(params).then(res=>{
+					if(res.code==1){
+						uni.showToast({
+							title: '收藏成功',
+							icon: 'success',
+							mask: true
+						})
+					}
+				})
 			}
-
-
 		}
 	}
 </script>
 
-<style>
+<style lang="scss">
 	.image-wrapper {
 		width: 100%;
 		height: 500upx;

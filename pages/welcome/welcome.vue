@@ -30,6 +30,14 @@
 			
 		},
 		onLoad() {
+			uni.getStorage({
+				key: 'userId',
+				success: function(res) {
+					uni.switchTab({
+						url: '/pages/index/index'
+					})
+				}
+			})
 		}
 	}
 </script>

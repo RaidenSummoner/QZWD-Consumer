@@ -52,7 +52,7 @@
 	}
 </script>
 
-<style>
+<style lang="scss">
 	.whi{
 		background-color: GhostWhite ;
 	}
