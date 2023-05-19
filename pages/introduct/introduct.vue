@@ -46,7 +46,7 @@
 </template>
 
 <script>
-	import {addFavorites} from '../../api/favorites'
+	import {addFavorites,deleteFavorites} from '../../api/favorites'
 	export default {
 		data() {
 			return {
@@ -90,15 +90,28 @@
 					category: 1,	//1表示资讯
 					userId: userId
 				}
-				addFavorites(params).then(res=>{
-					if(res.code==1){
-						uni.showToast({
-							title: '收藏成功',
-							icon: 'success',
-							mask: true
-						})
-					}
-				})
+				if(!this.item.star){
+					addFavorites(params).then(res=>{
+						if(res.code==1){
+							uni.showToast({
+								title: '收藏成功',
+								icon: 'success',
+								mask: true
+							})
+						}
+					})
+				}
+				else{
+					deleteFavorites(params).then(res=>{
+						if(res.code==1){
+							uni.showToast({
+								title: '取消收藏',
+								icon: 'success',
+								mask: true
+							})
+						}
+					})
+				}
 			}
 		}
 	}

@@ -29,7 +29,7 @@
 </template>
 
 <script>
-	import {addFavorites} from '../../api/favorites'
+	import {addFavorites, deleteFavorites} from '../../api/favorites'
 	export default {
 		data() {
 			return {
@@ -38,6 +38,7 @@
 					title: "产品经理集训营-第一期",
 					content: "基于'MBTI'产品",
 					introduce: "老师简介",
+					star: 0
 				}
 			}
 		},
@@ -62,15 +63,28 @@
 					category: 2,	//2表示课程
 					userId: userId
 				}
-				addFavorites(params).then(res=>{
-					if(res.code==1){
-						uni.showToast({
-							title: '收藏成功',
-							icon: 'success',
-							mask: true
-						})
-					}
-				})
+				if(!this.item.star){
+					addFavorites(params).then(res=>{
+						if(res.code==1){
+							uni.showToast({
+								title: '收藏成功',
+								icon: 'success',
+								mask: true
+							})
+						}
+					})
+				}
+				else{
+					deleteFavorites(params).then(res=>{
+						if(res.code==1){
+							uni.showToast({
+								title: '取消收藏成功',
+								icon: 'success',
+								mask: true
+							})
+						}
+					})
+				}
 			}
 		}
 	}
